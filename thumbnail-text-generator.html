@@ -1,0 +1,782 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>Thumbnail Text Generator AI | IncomeAIHub</title>
+<meta name="description" content="AI se high-CTR YouTube thumbnail text ideas generate karein — seconds mein.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=DM+Sans:wght@400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --bg-0:#0a0a0f;
+    --bg-1:#111117;
+    --bg-2:#17171f;
+    --card:#1b1b24;
+    --border:#2a2a36;
+    --gold:#d4af37;
+    --gold-soft:#e8c766;
+    --emerald:#2ecc9c;
+    --violet:#8b5cf6;
+    --text-1:#f3f2ee;
+    --text-2:#a7a6b3;
+    --text-3:#6f6e7c;
+    --danger:#ff5c5c;
+    --radius:16px;
+    --radius-sm:10px;
+    --font-head:'Syne',sans-serif;
+    --font-body:'DM Sans',sans-serif;
+    --font-mono:'DM Mono',monospace;
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+
+  body{
+    font-family:var(--font-body);
+    background:
+      radial-gradient(circle at 15% 0%, rgba(139,92,246,0.10), transparent 40%),
+      radial-gradient(circle at 85% 10%, rgba(212,175,55,0.08), transparent 40%),
+      radial-gradient(circle at 50% 100%, rgba(46,204,156,0.07), transparent 45%),
+      var(--bg-0);
+    color:var(--text-1);
+    min-height:100vh;
+    line-height:1.5;
+  }
+
+  .wrap{max-width:1100px; margin:0 auto; padding:24px 18px 60px;}
+
+  /* ---------- Header ---------- */
+  header.top{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:14px 0 26px; flex-wrap:wrap; gap:12px;
+  }
+  .brand{display:flex; align-items:center; gap:10px;}
+  .brand-mark{
+    width:38px; height:38px; border-radius:10px;
+    background:linear-gradient(135deg,var(--gold),var(--emerald));
+    display:flex; align-items:center; justify-content:center;
+    font-family:var(--font-head); font-weight:800; color:#0a0a0f; font-size:18px;
+  }
+  .brand-name{font-family:var(--font-head); font-weight:700; font-size:16px; letter-spacing:0.3px;}
+  .brand-name span{color:var(--gold);}
+  .brand-sub{font-size:11px; color:var(--text-3); font-family:var(--font-mono);}
+
+  .header-actions{display:flex; gap:10px; align-items:center;}
+  .icon-btn{
+    background:var(--bg-2); border:1px solid var(--border); color:var(--text-2);
+    padding:9px 14px; border-radius:999px; font-size:13px; cursor:pointer;
+    display:flex; align-items:center; gap:6px; font-family:var(--font-body); font-weight:500;
+    transition:.2s;
+  }
+  .icon-btn:hover{border-color:var(--gold); color:var(--gold-soft);}
+
+  .status-pill{
+    font-family:var(--font-mono); font-size:11px; padding:6px 12px; border-radius:999px;
+    background:rgba(46,204,156,0.12); color:var(--emerald); border:1px solid rgba(46,204,156,0.3);
+  }
+  .status-pill.locked{background:rgba(212,175,55,0.1); color:var(--gold-soft); border-color:rgba(212,175,55,0.3);}
+
+  /* ---------- Hero ---------- */
+  .hero{text-align:center; padding:20px 10px 34px;}
+  .hero h1{
+    font-family:var(--font-head); font-weight:800; font-size:clamp(28px,5vw,44px);
+    letter-spacing:-0.5px; margin-bottom:12px;
+  }
+  .hero h1 .grad{
+    background:linear-gradient(90deg,var(--gold),var(--emerald) 55%,var(--violet));
+    -webkit-background-clip:text; background-clip:text; color:transparent;
+  }
+  .hero p{color:var(--text-2); font-size:15px; max-width:560px; margin:0 auto;}
+
+  /* ---------- Layout ---------- */
+  .grid{display:grid; grid-template-columns:1fr; gap:22px;}
+  @media(min-width:900px){ .grid{grid-template-columns:400px 1fr;} }
+
+  .panel{
+    background:var(--card); border:1px solid var(--border); border-radius:var(--radius);
+    padding:22px; box-shadow:0 8px 30px rgba(0,0,0,0.25);
+  }
+  .panel h2{font-family:var(--font-head); font-size:17px; margin-bottom:16px; font-weight:700;}
+  .panel h2 .n{color:var(--gold);}
+
+  label{display:block; font-size:12.5px; color:var(--text-2); margin-bottom:6px; font-weight:600;}
+  input[type=text], textarea, select{
+    width:100%; background:var(--bg-1); border:1px solid var(--border); color:var(--text-1);
+    padding:11px 13px; border-radius:var(--radius-sm); font-family:var(--font-body); font-size:14px;
+    margin-bottom:16px; transition:.2s; resize:vertical;
+  }
+  input[type=text]:focus, textarea:focus, select:focus{outline:none; border-color:var(--gold);}
+  textarea{min-height:74px;}
+
+  .chip-row{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:16px;}
+  .chip{
+    padding:8px 13px; border-radius:999px; border:1px solid var(--border); background:var(--bg-1);
+    font-size:12.5px; color:var(--text-2); cursor:pointer; transition:.15s; user-select:none;
+  }
+  .chip.active{background:linear-gradient(90deg,var(--gold),var(--emerald)); color:#0a0a0f; border-color:transparent; font-weight:700;}
+
+  .count-row{display:flex; align-items:center; justify-content:space-between; margin-bottom:18px;}
+  .count-row .val{font-family:var(--font-mono); color:var(--gold-soft); font-size:14px;}
+  input[type=range]{width:100%; accent-color:var(--gold);}
+
+  .btn-primary{
+    width:100%; padding:14px; border:none; border-radius:12px; cursor:pointer;
+    background:linear-gradient(90deg,var(--gold),var(--emerald)); color:#0a0a0f;
+    font-family:var(--font-head); font-weight:700; font-size:15px; letter-spacing:0.3px;
+    transition:.2s; display:flex; align-items:center; justify-content:center; gap:8px;
+  }
+  .btn-primary:hover{filter:brightness(1.08); transform:translateY(-1px);}
+  .btn-primary:disabled{opacity:0.55; cursor:not-allowed; transform:none;}
+
+  .hint{font-size:11.5px; color:var(--text-3); margin-top:10px; text-align:center;}
+
+  /* ---------- Results ---------- */
+  .results-head{display:flex; align-items:center; justify-content:space-between; margin-bottom:16px; flex-wrap:wrap; gap:10px;}
+  .results-head h2{margin:0;}
+  .sort-select{width:auto; margin:0; padding:8px 12px; font-size:12.5px;}
+
+  .empty-state{
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    padding:60px 20px; color:var(--text-3); text-align:center; gap:10px;
+  }
+  .empty-state .big-emoji{font-size:40px;}
+
+  .cards{display:grid; grid-template-columns:1fr; gap:14px;}
+  @media(min-width:640px){ .cards{grid-template-columns:1fr 1fr;} }
+
+  .tcard{
+    background:var(--bg-1); border:1px solid var(--border); border-radius:14px; overflow:hidden;
+    display:flex; flex-direction:column; transition:.2s;
+  }
+  .tcard:hover{border-color:var(--gold);}
+  .tcard.locked-card{position:relative;}
+  .thumb-preview{
+    height:120px; display:flex; align-items:center; justify-content:center; text-align:center;
+    padding:14px; position:relative; overflow:hidden;
+  }
+  .thumb-preview .txt{
+    font-family:var(--font-head); font-weight:800; text-transform:uppercase;
+    line-height:1.15; letter-spacing:0.5px; text-shadow:0 3px 10px rgba(0,0,0,0.4);
+    word-break:break-word;
+  }
+  .tcard-body{padding:13px 14px 15px;}
+  .tcard-meta{display:flex; gap:6px; margin-bottom:8px; flex-wrap:wrap;}
+  .tag{font-size:10px; font-family:var(--font-mono); padding:3px 8px; border-radius:999px; background:var(--bg-2); color:var(--text-3); border:1px solid var(--border);}
+  .tcard-actions{display:flex; gap:8px; margin-top:10px;}
+  .mini-btn{
+    flex:1; background:var(--bg-2); border:1px solid var(--border); color:var(--text-2);
+    padding:8px; border-radius:8px; font-size:12px; cursor:pointer; font-family:var(--font-body); font-weight:600;
+    transition:.15s; display:flex; align-items:center; justify-content:center; gap:5px;
+  }
+  .mini-btn:hover{border-color:var(--emerald); color:var(--emerald);}
+
+  .blur-overlay{
+    position:absolute; inset:0; backdrop-filter:blur(6px); background:rgba(10,10,15,0.55);
+    display:flex; align-items:center; justify-content:center; flex-direction:column; gap:8px;
+    cursor:pointer;
+  }
+  .blur-overlay .lock-ic{font-size:22px;}
+  .blur-overlay span{font-size:11.5px; color:var(--gold-soft); font-family:var(--font-mono);}
+
+  /* ---------- Ad slots ---------- */
+  .ad-slot{
+    border:1px dashed var(--border); border-radius:12px; padding:14px; text-align:center;
+    color:var(--text-3); font-size:11px; font-family:var(--font-mono); margin:22px 0;
+    background:rgba(255,255,255,0.015);
+  }
+
+  /* ---------- Modal ---------- */
+  .modal-bg{
+    position:fixed; inset:0; background:rgba(5,5,8,0.72); backdrop-filter:blur(4px);
+    display:none; align-items:center; justify-content:center; z-index:999; padding:16px;
+  }
+  .modal-bg.show{display:flex;}
+  .modal{
+    background:var(--bg-1); border:1px solid var(--border); border-radius:18px; max-width:460px; width:100%;
+    padding:26px; max-height:86vh; overflow-y:auto; position:relative;
+  }
+  .modal h3{font-family:var(--font-head); font-size:19px; margin-bottom:14px;}
+  .modal-close{
+    position:absolute; top:16px; right:16px; background:none; border:none; color:var(--text-2);
+    font-size:20px; cursor:pointer; line-height:1;
+  }
+  .modal p, .modal li{color:var(--text-2); font-size:13.5px; margin-bottom:10px;}
+  .modal ol, .modal ul{padding-left:18px; margin-bottom:14px;}
+  .price-box{
+    background:linear-gradient(135deg, rgba(212,175,55,0.12), rgba(46,204,156,0.08));
+    border:1px solid rgba(212,175,55,0.3); border-radius:12px; padding:18px; text-align:center; margin:16px 0;
+  }
+  .price-box .amt{font-family:var(--font-head); font-size:30px; font-weight:800; color:var(--gold-soft);}
+  .price-box .desc{font-size:12px; color:var(--text-2); margin-top:4px;}
+  .feature-list{list-style:none; padding:0; margin:14px 0;}
+  .feature-list li{display:flex; gap:8px; align-items:flex-start; margin-bottom:8px; font-size:13px; color:var(--text-1);}
+  .feature-list li:before{content:"✓"; color:var(--emerald); font-weight:700;}
+
+  .lang-toggle{display:flex; gap:8px; margin-bottom:16px;}
+  .lang-toggle button{
+    flex:1; padding:8px; border-radius:8px; border:1px solid var(--border); background:var(--bg-2);
+    color:var(--text-2); font-size:12px; cursor:pointer; font-weight:600;
+  }
+  .lang-toggle button.active{background:var(--gold); color:#0a0a0f; border-color:transparent;}
+
+  footer{text-align:center; color:var(--text-3); font-size:11.5px; padding:30px 0 10px; font-family:var(--font-mono);}
+  footer a{color:var(--text-2);}
+
+  .toast{
+    position:fixed; bottom:20px; left:50%; transform:translateX(-50%) translateY(20px);
+    background:var(--bg-2); border:1px solid var(--emerald); color:var(--text-1);
+    padding:11px 20px; border-radius:999px; font-size:13px; opacity:0; transition:.3s; z-index:1200;
+    display:flex; align-items:center; gap:8px;
+  }
+  .toast.show{opacity:1; transform:translateX(-50%) translateY(0);}
+
+  .spinner{
+    width:16px; height:16px; border:2px solid rgba(10,10,15,0.3); border-top-color:#0a0a0f;
+    border-radius:50%; animation:spin 0.7s linear infinite;
+  }
+  @keyframes spin{to{transform:rotate(360deg);}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="top">
+    <div class="brand">
+      <div class="brand-mark">IH</div>
+      <div>
+        <div class="brand-name">Income<span>AI</span>Hub</div>
+        <div class="brand-sub">by M.Dev</div>
+      </div>
+    </div>
+    <div class="header-actions">
+      <span id="statusPill" class="status-pill locked">🔒 Free Plan</span>
+      <button class="icon-btn" onclick="openGuide()">🇮🇳 Hindi Guide</button>
+    </div>
+  </header>
+
+  <section class="hero">
+    <h1>Thumbnail <span class="grad">Text Generator</span> AI</h1>
+    <p>Apne video ka topic dijiye — AI turant high-CTR, scroll-stopping thumbnail text ideas banayega, preview ke saath.</p>
+  </section>
+
+  <div class="grid">
+
+    <!-- LEFT: Input Panel -->
+    <div class="panel">
+      <h2><span class="n">01.</span> Video Details</h2>
+
+      <label for="topic">Video Topic / Title</label>
+      <textarea id="topic" placeholder="e.g. Main 30 din mein ₹50,000 kaise kamaya (Freelancing)"></textarea>
+
+      <label for="niche">Niche</label>
+      <select id="niche">
+        <option value="Finance & Money">Finance &amp; Money</option>
+        <option value="Tech & AI">Tech &amp; AI</option>
+        <option value="Vlog & Lifestyle">Vlog &amp; Lifestyle</option>
+        <option value="Education & Study">Education &amp; Study</option>
+        <option value="Gaming">Gaming</option>
+        <option value="Business & Startup">Business &amp; Startup</option>
+        <option value="Fitness & Health">Fitness &amp; Health</option>
+        <option value="Comedy & Entertainment">Comedy &amp; Entertainment</option>
+        <option value="Food & Cooking">Food &amp; Cooking</option>
+        <option value="News & Facts">News &amp; Facts</option>
+      </select>
+
+      <label>Tone</label>
+      <div class="chip-row" id="toneChips">
+        <div class="chip active" data-val="Shocking">😱 Shocking</div>
+        <div class="chip" data-val="Curious">🤔 Curious</div>
+        <div class="chip" data-val="Emotional">❤️ Emotional</div>
+        <div class="chip" data-val="Funny">😂 Funny</div>
+        <div class="chip" data-val="Urgent">⏰ Urgent</div>
+        <div class="chip" data-val="Inspiring">🔥 Inspiring</div>
+      </div>
+
+      <label>Language</label>
+      <div class="chip-row" id="langChips">
+        <div class="chip active" data-val="Hinglish">Hinglish</div>
+        <div class="chip" data-val="Hindi">हिंदी</div>
+        <div class="chip" data-val="English">English</div>
+      </div>
+
+      <div class="count-row">
+        <label style="margin:0;">Number of Ideas</label>
+        <span class="val" id="countVal">6</span>
+      </div>
+      <input type="range" id="countRange" min="4" max="12" value="6" step="1">
+
+      <button class="btn-primary" id="generateBtn" onclick="generateThumbnails()">
+        ⚡ Generate Thumbnail Text
+      </button>
+      <div class="hint">Free plan: 3 results per generation • <span id="usesLeft">3</span> free generations left today</div>
+    </div>
+
+    <!-- RIGHT: Results Panel -->
+    <div class="panel">
+      <div class="results-head">
+        <h2 style="margin:0;"><span class="n">02.</span> Generated Ideas</h2>
+      </div>
+
+      <div id="emptyState" class="empty-state">
+        <div class="big-emoji">🎬</div>
+        <div>Abhi tak koi result nahi — topic likhiye aur Generate dabaiye</div>
+      </div>
+
+      <div id="cardsContainer" class="cards" style="display:none;"></div>
+
+      <div class="ad-slot">Advertisement Placeholder — 728x90 / Responsive</div>
+    </div>
+
+  </div>
+
+  <footer>
+    IncomeAIHub by M.Dev · Raipur, Chhattisgarh · Made for Indian Creators &amp; Freelancers<br>
+    <a href="#" onclick="openGuide();return false;">Hindi Guide</a> · <a href="#" onclick="openPaywall();return false;">Unlock Full Access</a>
+  </footer>
+</div>
+
+<!-- ===== Paywall Modal ===== -->
+<div class="modal-bg" id="paywallModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('paywallModal')">✕</button>
+    <h3>🔓 Unlock Lifetime Access</h3>
+    <p>Ek baar payment, hamesha ke liye unlimited thumbnail text ideas — no monthly fees.</p>
+    <div class="price-box">
+      <div class="amt">₹149</div>
+      <div class="desc">One-time payment · Lifetime unlock</div>
+    </div>
+    <ul class="feature-list">
+      <li>Unlimited generations, unlimited results per generation</li>
+      <li>All tones, niches &amp; languages unlocked</li>
+      <li>Copy, save &amp; export ideas as text file</li>
+      <li>No ads, priority AI response speed</li>
+      <li>Free updates to this tool, forever</li>
+    </ul>
+    <button class="btn-primary" onclick="startPayment()" id="payBtn">💳 Pay ₹149 &amp; Unlock Now</button>
+    <div class="hint">Secure payment via Razorpay · UPI / Cards / NetBanking</div>
+  </div>
+</div>
+
+<!-- ===== Hindi Guide Modal ===== -->
+<div class="modal-bg" id="guideModal">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal('guideModal')">✕</button>
+    <h3>🇮🇳 Is Tool Ko Kaise Use Karein</h3>
+    <ol>
+      <li>Apne video ka topic ya title box mein likhein (jitna detail utna behtar result).</li>
+      <li>Niche (category) select karein — jaise Finance, Tech, Vlog, etc.</li>
+      <li>Tone chunein — Shocking, Curious, Funny, jo bhi aapke video se match kare.</li>
+      <li>Language select karein — Hinglish, Hindi ya English.</li>
+      <li>Slider se batayein kitne ideas chahiye, phir "Generate" dabayein.</li>
+      <li>Har card mein ek thumbnail text idea aur uska mini preview milega. "Copy" button se text copy karein.</li>
+      <li>Free plan mein 3 results milte hain. Zyada aur unlimited ke liye "Unlock Lifetime Access" dabayein.</li>
+    </ol>
+    <p><b>Tip:</b> Best result ke liye topic ke saath emotion ya number bhi likhein — jaise "30 din mein", "₹50,000", "Sabse bada mistake" etc.</p>
+    <button class="btn-primary" onclick="closeModal('guideModal')">Samajh Gaya 👍</button>
+  </div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<script>
+/* =========================================================
+   CONFIG — Replace with your actual Supabase project values
+   ========================================================= */
+const CONFIG = {
+  TOOL_ID: "thumbnail-text-generator",
+  SUPABASE_URL: "https://YOUR-PROJECT-REF.supabase.co",
+  SUPABASE_ANON_KEY: "YOUR_SUPABASE_ANON_KEY",
+  EDGE_FUNCTIONS: {
+    createOrder: "/functions/v1/create-order",
+    verifyPayment: "/functions/v1/verify-payment",
+    checkUnlock: "/functions/v1/check-unlock",
+    aiProxy: "/functions/v1/ai-proxy"
+  },
+  RAZORPAY_KEY_ID: "YOUR_RAZORPAY_KEY_ID",
+  PRICE_INR: 149,
+  FREE_GENERATIONS_PER_DAY: 3,
+  FREE_RESULTS_PER_GEN: 3
+};
+
+/* DEMO_MODE auto-detects if Supabase isn't configured yet,
+   so the tool still works fully offline for testing/demo. */
+const DEMO_MODE = CONFIG.SUPABASE_URL.includes("YOUR-PROJECT-REF");
+
+/* ---------------- Device ID / State ---------------- */
+function getDeviceId(){
+  let id = localStorage.getItem("ithub_device_id");
+  if(!id){
+    id = "dev_" + Math.random().toString(36).slice(2) + Date.now().toString(36);
+    localStorage.setItem("ithub_device_id", id);
+  }
+  return id;
+}
+const deviceId = getDeviceId();
+
+const storeKey = k => `${CONFIG.TOOL_ID}_${k}`;
+function getUnlockStatus(){ return localStorage.getItem(storeKey("unlocked")) === "true"; }
+function setUnlockStatus(v){ localStorage.setItem(storeKey("unlocked"), v ? "true" : "false"); }
+
+function getTodayUsage(){
+  const today = new Date().toISOString().slice(0,10);
+  const raw = JSON.parse(localStorage.getItem(storeKey("usage")) || "{}");
+  if(raw.date !== today) return {date: today, count: 0};
+  return raw;
+}
+function incrementUsage(){
+  const u = getTodayUsage();
+  u.count += 1;
+  localStorage.setItem(storeKey("usage"), JSON.stringify(u));
+  refreshUsageUI();
+}
+function refreshUsageUI(){
+  const unlocked = getUnlockStatus();
+  const pill = document.getElementById("statusPill");
+  const usesLeftEl = document.getElementById("usesLeft");
+  if(unlocked){
+    pill.textContent = "✨ Lifetime Unlocked";
+    pill.classList.remove("locked");
+    usesLeftEl.parentElement.style.display = "none";
+  } else {
+    pill.textContent = "🔒 Free Plan";
+    pill.classList.add("locked");
+    const used = getTodayUsage().count;
+    const left = Math.max(0, CONFIG.FREE_GENERATIONS_PER_DAY - used);
+    usesLeftEl.textContent = left;
+  }
+}
+
+/* ---------------- Chip Selectors ---------------- */
+function setupChips(containerId){
+  const container = document.getElementById(containerId);
+  container.addEventListener("click", e=>{
+    const chip = e.target.closest(".chip");
+    if(!chip) return;
+    [...container.children].forEach(c=>c.classList.remove("active"));
+    chip.classList.add("active");
+  });
+}
+setupChips("toneChips");
+setupChips("langChips");
+
+function getActiveChip(containerId){
+  return document.querySelector(`#${containerId} .chip.active`).dataset.val;
+}
+
+/* ---------------- Range Slider ---------------- */
+const countRange = document.getElementById("countRange");
+const countVal = document.getElementById("countVal");
+countRange.addEventListener("input", ()=> countVal.textContent = countRange.value);
+
+/* ---------------- Colour palette for previews ---------------- */
+const PALETTES = [
+  {bg:"linear-gradient(135deg,#ff5c5c,#ffb648)", fg:"#0a0a0f"},
+  {bg:"linear-gradient(135deg,#2ecc9c,#0aa6ff)", fg:"#0a0a0f"},
+  {bg:"linear-gradient(135deg,#8b5cf6,#ff5c9e)", fg:"#ffffff"},
+  {bg:"linear-gradient(135deg,#d4af37,#ff7a3d)", fg:"#0a0a0f"},
+  {bg:"linear-gradient(135deg,#0aa6ff,#8b5cf6)", fg:"#ffffff"},
+  {bg:"linear-gradient(135deg,#ffb648,#ff5c5c)", fg:"#0a0a0f"}
+];
+
+/* ---------------- Toast ---------------- */
+let toastTimer;
+function showToast(msg){
+  const t = document.getElementById("toast");
+  t.textContent = msg;
+  t.classList.add("show");
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(()=> t.classList.remove("show"), 2200);
+}
+
+/* ---------------- Modals ---------------- */
+function openGuide(){ document.getElementById("guideModal").classList.add("show"); }
+function openPaywall(){ document.getElementById("paywallModal").classList.add("show"); }
+function closeModal(id){ document.getElementById(id).classList.remove("show"); }
+document.querySelectorAll(".modal-bg").forEach(bg=>{
+  bg.addEventListener("click", e=>{ if(e.target === bg) bg.classList.remove("show"); });
+});
+
+/* ---------------- Demo generator (offline fallback) ---------------- */
+const DEMO_TEMPLATES = {
+  Shocking: ["YE HUA KAISE?!","MAINE BHI NAHI SOCHA THA","SHOCKING TRUTH REVEALED","IMPOSSIBLE HAI YE"],
+  Curious: ["KYA AAP JANTE HAIN?","ISKA RAAZ KYA HAI?","YE KAAM KAISE KARTA HAI","SACH JAAN KAR HAIRAAN"],
+  Emotional: ["DIL SE KAHA GAYA","ROULA AA GAYA","MERI KAHANI","SABKO PATA HONA CHAHIYE"],
+  Funny: ["😂 100% SAHI HAI","YE TO HADD HAI","MAIN HANS PADA","LOL YE DEKHO"],
+  Urgent: ["ABHI DEKHO ⏰","LAST CHANCE","WAQT NIKAL RAHA HAI","DERI MAT KARO"],
+  Inspiring: ["AAJ SE BADLO","YE POSSIBLE HAI","HIMMAT MAT HARO","SAPNA SACH KARO"]
+};
+
+function localDemoGenerate(topic, niche, tone, lang, count){
+  const base = DEMO_TEMPLATES[tone] || DEMO_TEMPLATES.Shocking;
+  const words = topic.split(/\s+/).filter(Boolean);
+  const keyword = (words[0] || niche.split(" ")[0] || "VIDEO").toUpperCase();
+  const results = [];
+  for(let i=0;i<count;i++){
+    const t = base[i % base.length];
+    const variants = [
+      `${keyword} ${t}`,
+      `${t} - ${keyword}`,
+      `${keyword}: ${t.split(" ")[0]}`,
+      t
+    ];
+    results.push(variants[i % variants.length].slice(0,42));
+  }
+  return results;
+}
+
+/* ---------------- AI Proxy Call ---------------- */
+async function callAIProxy(prompt){
+  const res = await fetch(`${CONFIG.SUPABASE_URL}${CONFIG.EDGE_FUNCTIONS.aiProxy}`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      "Authorization": `Bearer ${CONFIG.SUPABASE_ANON_KEY}`
+    },
+    body: JSON.stringify({
+      deviceId,
+      toolId: CONFIG.TOOL_ID,
+      prompt
+    })
+  });
+  if(!res.ok) throw new Error("AI proxy request failed");
+  const data = await res.json();
+  return data;
+}
+
+/* ---------------- Check unlock (server) ---------------- */
+async function checkUnlockOnServer(){
+  if(DEMO_MODE) return getUnlockStatus();
+  try{
+    const res = await fetch(`${CONFIG.SUPABASE_URL}${CONFIG.EDGE_FUNCTIONS.checkUnlock}`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${CONFIG.SUPABASE_ANON_KEY}`
+      },
+      body: JSON.stringify({ deviceId, toolId: CONFIG.TOOL_ID })
+    });
+    const data = await res.json();
+    setUnlockStatus(!!data.unlocked);
+    return !!data.unlocked;
+  }catch(e){
+    return getUnlockStatus();
+  }
+}
+
+/* ---------------- Generate Flow ---------------- */
+async function generateThumbnails(){
+  const topic = document.getElementById("topic").value.trim();
+  if(!topic){
+    showToast("⚠️ Pehle video topic likhein");
+    return;
+  }
+
+  const unlocked = getUnlockStatus();
+  const usage = getTodayUsage();
+
+  if(!unlocked && usage.count >= CONFIG.FREE_GENERATIONS_PER_DAY){
+    openPaywall();
+    return;
+  }
+
+  const niche = document.getElementById("niche").value;
+  const tone = getActiveChip("toneChips");
+  const lang = getActiveChip("langChips");
+  let count = parseInt(countRange.value, 10);
+  if(!unlocked) count = Math.min(count, CONFIG.FREE_RESULTS_PER_GEN);
+
+  const btn = document.getElementById("generateBtn");
+  btn.disabled = true;
+  btn.innerHTML = `<span class="spinner"></span> Generating...`;
+
+  try{
+    let ideas = [];
+
+    if(DEMO_MODE){
+      await new Promise(r=>setTimeout(r, 700));
+      ideas = localDemoGenerate(topic, niche, tone, lang, count);
+    } else {
+      const prompt = `Generate ${count} short, high-CTR YouTube thumbnail text ideas (max 5 words each, ALL CAPS, punchy) for a video about: "${topic}". Niche: ${niche}. Tone: ${tone}. Language: ${lang}. Return ONLY a JSON array of strings, nothing else.`;
+      const data = await callAIProxy(prompt);
+      try{
+        ideas = JSON.parse(data.text || data.result || "[]");
+      }catch(parseErr){
+        ideas = (data.text || "").split("\\n").filter(Boolean).slice(0,count);
+      }
+      if(!ideas.length) ideas = localDemoGenerate(topic, niche, tone, lang, count);
+    }
+
+    renderResults(ideas, !unlocked);
+    if(!unlocked) incrementUsage();
+
+  }catch(err){
+    console.error(err);
+    showToast("❌ Generation fail hua, dobara try karein");
+  }finally{
+    btn.disabled = false;
+    btn.innerHTML = "⚡ Generate Thumbnail Text";
+  }
+}
+
+/* ---------------- Render Results ---------------- */
+function renderResults(ideas, isFreeLimited){
+  const container = document.getElementById("cardsContainer");
+  const empty = document.getElementById("emptyState");
+  empty.style.display = "none";
+  container.style.display = "grid";
+  container.innerHTML = "";
+
+  ideas.forEach((idea, i)=>{
+    const palette = PALETTES[i % PALETTES.length];
+    const locked = isFreeLimited && i >= CONFIG.FREE_RESULTS_PER_GEN - 1 && i !== 0 && false; // reserved for future paywall-per-card logic
+
+    const card = document.createElement("div");
+    card.className = "tcard";
+    card.innerHTML = `
+      <div class="thumb-preview" style="background:${palette.bg};">
+        <div class="txt" style="color:${palette.fg}; font-size:${idea.length > 20 ? '16px' : '20px'};">${escapeHtml(idea)}</div>
+      </div>
+      <div class="tcard-body">
+        <div class="tcard-meta">
+          <span class="tag">${idea.length} chars</span>
+          <span class="tag">#${i+1}</span>
+        </div>
+        <div class="tcard-actions">
+          <button class="mini-btn" onclick="copyText(this, ${JSON.stringify(idea)})">📋 Copy</button>
+        </div>
+      </div>
+    `;
+    container.appendChild(card);
+  });
+
+  if(isFreeLimited){
+    const upsell = document.createElement("div");
+    upsell.className = "tcard locked-card";
+    upsell.style.minHeight = "180px";
+    upsell.innerHTML = `
+      <div class="blur-overlay" onclick="openPaywall()" style="position:relative; inset:auto; height:100%; border-radius:14px;">
+        <div class="lock-ic">🔒</div>
+        <span>Unlock ${countRange.value - ideas.length}+ more ideas</span>
+      </div>
+    `;
+    container.appendChild(upsell);
+  }
+}
+
+function escapeHtml(str){
+  const div = document.createElement("div");
+  div.textContent = str;
+  return div.innerHTML;
+}
+
+function copyText(btn, text){
+  navigator.clipboard.writeText(text).then(()=>{
+    const original = btn.innerHTML;
+    btn.innerHTML = "✅ Copied";
+    showToast("Copied to clipboard!");
+    setTimeout(()=> btn.innerHTML = original, 1400);
+  });
+}
+
+/* ---------------- Razorpay Payment Flow ---------------- */
+function loadRazorpayScript(){
+  return new Promise((resolve, reject)=>{
+    if(window.Razorpay) return resolve();
+    const script = document.createElement("script");
+    script.src = "https://checkout.razorpay.com/v1/checkout.js";
+    script.onload = resolve;
+    script.onerror = reject;
+    document.body.appendChild(script);
+  });
+}
+
+async function startPayment(){
+  const payBtn = document.getElementById("payBtn");
+
+  if(DEMO_MODE){
+    showToast("Demo mode: Supabase config nahi mila — payment simulate ho raha hai");
+    await new Promise(r=>setTimeout(r,900));
+    setUnlockStatus(true);
+    refreshUsageUI();
+    closeModal("paywallModal");
+    showToast("🎉 Demo unlock complete!");
+    return;
+  }
+
+  payBtn.disabled = true;
+  payBtn.innerHTML = `<span class="spinner"></span> Processing...`;
+
+  try{
+    await loadRazorpayScript();
+
+    const orderRes = await fetch(`${CONFIG.SUPABASE_URL}${CONFIG.EDGE_FUNCTIONS.createOrder}`, {
+      method:"POST",
+      headers:{
+        "Content-Type":"application/json",
+        "Authorization": `Bearer ${CONFIG.SUPABASE_ANON_KEY}`
+      },
+      body: JSON.stringify({ deviceId, toolId: CONFIG.TOOL_ID, amount: CONFIG.PRICE_INR * 100 })
+    });
+    const order = await orderRes.json();
+
+    const rzp = new Razorpay({
+      key: CONFIG.RAZORPAY_KEY_ID,
+      amount: CONFIG.PRICE_INR * 100,
+      currency: "INR",
+      name: "IncomeAIHub",
+      description: "Thumbnail Text Generator — Lifetime Unlock",
+      order_id: order.id,
+      handler: async function(response){
+        const verifyRes = await fetch(`${CONFIG.SUPABASE_URL}${CONFIG.EDGE_FUNCTIONS.verifyPayment}`, {
+          method:"POST",
+          headers:{
+            "Content-Type":"application/json",
+            "Authorization": `Bearer ${CONFIG.SUPABASE_ANON_KEY}`
+          },
+          body: JSON.stringify({
+            deviceId,
+            toolId: CONFIG.TOOL_ID,
+            razorpay_order_id: response.razorpay_order_id,
+            razorpay_payment_id: response.razorpay_payment_id,
+            razorpay_signature: response.razorpay_signature
+          })
+        });
+        const verifyData = await verifyRes.json();
+        if(verifyData.success){
+          setUnlockStatus(true);
+          refreshUsageUI();
+          closeModal("paywallModal");
+          showToast("🎉 Lifetime unlock activated!");
+        } else {
+          showToast("❌ Payment verify nahi hua, support se contact karein");
+        }
+      },
+      theme: { color: "#d4af37" }
+    });
+    rzp.open();
+
+  }catch(err){
+    console.error(err);
+    showToast("❌ Payment start nahi ho paya, dobara try karein");
+  }finally{
+    payBtn.disabled = false;
+    payBtn.innerHTML = "💳 Pay ₹149 &amp; Unlock Now";
+  }
+}
+
+/* ---------------- Init ---------------- */
+(async function init(){
+  refreshUsageUI();
+  await checkUnlockOnServer();
+  refreshUsageUI();
+  if(DEMO_MODE){
+    console.info("%c[IncomeAIHub] DEMO_MODE active — Supabase config placeholder detected. Tool fully usable offline for testing.", "color:#d4af37");
+  }
+})();
+</script>
+</body>
+</html>
